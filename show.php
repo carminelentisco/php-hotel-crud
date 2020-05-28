@@ -1,8 +1,13 @@
 <?php
-// Server
-include __DIR__ . '/partials/show/server.php';
-// Head page code
-include __DIR__ . '/partials/templates/head.php';
+/********************************************************
+  
+*                        SHOW.PHP                       *
+ 
+********************************************************/
+
+include __DIR__ . '/partials/show/server.php';      // Show server -- Connessione alla logica server
+include __DIR__ . '/partials/templates/head.php';   // Head page code -- Template HTML 
+
 ?>
 
 <main class="container">
@@ -10,7 +15,7 @@ include __DIR__ . '/partials/templates/head.php';
         <div class="col-12">
             
             <header>
-                <h1 class="text-primary">Details Room</h1>                    
+                <h1 class="text-primary">Details Room <span class="badge badge-secondary"><?php echo $room['room_number']; ?></</span></h1>                    
             </header>
 
             <div class="card">
@@ -29,5 +34,5 @@ include __DIR__ . '/partials/templates/head.php';
 </main>
 
 <?php 
-    include __DIR__ . '/partials/templates/footer.php';
+    include __DIR__ . '/partials/templates/footer.php'; // Footer page -- Template HTML { Script js compresi }
 ?>
