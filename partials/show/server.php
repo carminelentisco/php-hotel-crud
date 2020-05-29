@@ -15,8 +15,8 @@ include __DIR__ . '/../database.php';   // Connesione alla logica del DATABASE
 **/
 
 $id_room = $_GET['id'];
-$sql = "SELECT * FROM `stanze` WHERE `id` = $id_room"; // Query string che permette l'accesso all id della tabella stanze
-$result = $conn->query($sql);   // Associazione dei dati ad una variabile
+$sql = "SELECT * FROM `stanze` WHERE `id` = $id_room";  // Query string che permette l'accesso all id della tabella stanze
+$result = $conn->query($sql);                           // Associazione dei dati ad una variabile
 
 /**
  * 
