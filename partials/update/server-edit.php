@@ -1,4 +1,10 @@
 <?php 
+/*******************************************
+  
+ *            SERVER-EDIT.PHP              *
+  
+********************************************/
+
 
 include_once  __DIR__ . '/../database.php'; // Connessione alla logica DATABASE
 
@@ -25,4 +31,5 @@ if ( !empty($_GET['id']) ) {
 }
 
 // End connection
-$conn->close();
+include_once __DIR__ . '/../templates/end-connect.php';
+// $conn->close();
