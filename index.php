@@ -10,6 +10,23 @@ include __DIR__ . '/partials/templates/head.php';   // Head page code -- Templat
 
 ?>
 
+<?php
+
+/**
+ * 
+ *  ALLERT
+ * 
+ * Verifico se la query string ritorna un id  
+ * quindi stampa un allert con un info di successo dell operazione
+ * 
+**/
+
+if (empty($_GET['del'])) { ?>
+    <div class="alert alert-success">
+        Stanza cancellata con successo
+    </div>
+<?php } ?>
+
 <main class="container">
     <div class="row">
         <div class="col-12">
@@ -39,8 +56,15 @@ include __DIR__ . '/partials/templates/head.php';   // Head page code -- Templat
                                 <td><?php echo $room['room_number']; ?></td>
                                 <td><?php echo $room['floor']; ?></td>
                                 <td><a class="text-success" href="./show.php?id=<?php echo $room['id']; ?>">view</a></td>
-                                <td><a class="text-primary" href="">update</a></td>
-                                <td><a href="" class="text-danger">delete</a></td>
+                                <td>
+                                    <a class="text-primary" href="./edit.php?id=<?php echo $room['id']; ?>">update</a>
+                                </td>
+                                <td class="text-danger">
+                                    <form action="./partials/delete/server.php" method="POST">
+                                        <input type="hidden" name="id" value="<?php echo $room['id'];?>">
+                                        <input class="btn btn-danger" type="submit" value="Delete">
+                                    </form>
+                                </td>
                             </tr>
                     <?php }
                     }?>
