@@ -51,3 +51,25 @@ function getById ($conn, $table, $id) {
 
     return $record;
 }
+
+/**
+ * 
+ * Delete room
+ * 
+ */
+
+function deleteRoom($conn, $table, $id, $base_path) {
+    $sql = "DELETE FROM `$table` WHERE `id` = $id";
+    $result = $conn->query($sql);
+
+    if ( $result && $conn->affected_rows > 0 ) {
+
+        header("Location: $base_path?delete=1");
+
+    } elseif ($result) {
+        echo 'Nessuna stanza trovata';
+    } else {
+        echo 'Si è verificato un errore';
+    }
+}
+
