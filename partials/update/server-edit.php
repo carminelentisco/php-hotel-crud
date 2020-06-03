@@ -32,4 +32,3 @@ if ( !empty($_GET['id']) ) {
 
 // End connection
 include_once __DIR__ . '/../templates/end-connect.php';
-// $conn->close();
