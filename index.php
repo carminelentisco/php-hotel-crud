@@ -27,54 +27,27 @@ if (empty($_GET['del'])) { ?>
     </div>
 <?php } ?>
 
-<main class="container">
-    <div class="row">
-        <div class="col-12">
-            
-            <header>
-                <h1 class="text-primary">Hotel Rooms</h1>                    
-            </header>
-
-            <table class="table">
-                <thead>
-                    <tr>
-                        <th>id</th>
-                        <th>Number</th>
-                        <th>Floor</th>
-                        <th></th>
-                        <th></th>
-                        <th></th>
-                    </tr>
-                </thead>
-
-                <tbody>
-                    <?php
-                    if (! empty($rooms)) {
-                        foreach ($rooms as $room) { ?>
-                            <tr>
-                                <td><?php echo $room['id']; ?></td>
-                                <td><?php echo $room['room_number']; ?></td>
-                                <td><?php echo $room['floor']; ?></td>
-                                <td><a class="text-success" href="./show.php?id=<?php echo $room['id']; ?>">view</a></td>
-                                <td>
-                                    <a class="text-primary" href="./edit.php?id=<?php echo $room['id']; ?>">update</a>
-                                </td>
-                                <td class="text-danger">
-                                    <form action="./partials/delete/server.php" method="POST">
-                                        <input type="hidden" name="id" value="<?php echo $room['id'];?>">
-                                        <input class="btn btn-danger" type="submit" value="Delete">
-                                    </form>
-                                </td>
-                            </tr>
-                    <?php }
-                    }?>
-                </tbody>
-            </table>
-
+<main class="container d-flex justify-content-around flex-wrap">
+    <?php foreach ($rooms as $room) { ?>
+    <div class="card mt-5 text-center" style="width: 18rem;">
+        <div class="card-body">
+            <h5 class="card-title">Room Number: <?php echo $room['room_number'];?></h5>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">Beds: <?php echo $room['beds'];?></li>
+                <li class="list-group-item">Floor: <?php echo $room['floor'];?></li>
+            </ul>
+            <div class="d-flex justify-content-around">
+                <a class="btn btn-info" href="./show.php?id=<?php echo $room['id']; ?>">View</a>
+                <a href="./edit.php?id=<?php echo $room['id']; ?>" class="btn btn-primary">Update</a>
+                <form action="./partials/delete/server.php" method="POST">
+                    <input type="hidden" name="id" value="<?php echo $room['id'];?>">
+                    <input class="btn btn-danger" type="submit" value="Delete">
+                </form>
+            </div>
         </div>
     </div>
+    <?php } ?>
 </main>
-
 <?php 
     include __DIR__ . '/partials/templates/footer.php'; // Footer page -- Template HTML { Script js compresi }
 ?>
