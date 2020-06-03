@@ -48,6 +48,7 @@ if (empty($_GET['del'])) { ?>
     </div>
     <?php } ?>
 </main>
+
 <?php 
     include __DIR__ . '/partials/templates/footer.php'; // Footer page -- Template HTML { Script js compresi }
 ?>
