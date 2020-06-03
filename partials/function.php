@@ -28,3 +28,26 @@ function getAll($conn,$table) {
 
     return $records;
 }
+
+/**
+ * 
+ * Function delete
+ * 
+ */
+
+function getById ($conn, $table, $id) {
+    $sql = "SELECT * FROM `$table` WHERE `id` = $id"; 
+    $result = $conn->query($sql);  
+
+    if ( $conn && $result->num_rows > 0 ) {
+        $record = $result->fetch_assoc();
+    } elseif ($result) {
+        $record = [];
+    } else {
+        $record = false;
+    }
+
+    $conn->close(); 
+
+    return $record;
+}
